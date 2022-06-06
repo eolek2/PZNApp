@@ -1,0 +1,24 @@
+<div *ngIf="mode === 'read'">
+  <div class="card-subtitle">
+    <hr/>
+    <div class="row mb-2">
+      <div class="col-12 text-right">
+        <div class="btn btn-primary mr-2" (click)="addPost()">
+          <img src="/assets/report_add.png" class="img-icon" />
+          Dodaj nowy post
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-user-posts-list (editPostId)="editPost($event)"></app-user-posts-list>
+</div>
+<div *ngIf="mode === 'add'">
+  <app-user-posts-add (cancelPostAdding)="cancelPostAdd($event)"
+    (successPostAdding)="successPostAdd($event)"></app-user-posts-add>
+</div>
+<div *ngIf="mode === 'edit'">
+  <app-user-posts-edit
+  (postId)="currentPostId"
+  (cancelPostEditing)="cancelPostEdit($event)"
+  (successPostEditing)="successPostEdit($event)"></app-user-posts-edit>
+</div>

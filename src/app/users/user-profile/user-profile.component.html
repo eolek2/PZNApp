@@ -1,0 +1,35 @@
+<div class="container mt-5">
+  <div class="card card-title fs-3 text-center mb-3">
+    Ustawienia konta
+  </div>
+  <div class="row">
+    <div class="col 4">
+      <div class="card card-title fs-6 text-center mb-3">
+        <div class="p2">&nbsp;</div>
+        <img *ngIf="user.hasAvatar" src="{{user.avatarUrl}}" class="img-fluid img-thumbnail rounded img-user-avatar" />
+        <img *ngIf="!user.hasAvatar" src="/assets/noname.png" class="img-fluid img-thumbnail rounded img-user-avatar" />
+        <div class="p-2">
+          {{user.fullName}}
+        </div>
+      </div>
+    </div>
+    <div class="col-8 card card-title fs-6 text-center mb-3">
+      <div class="pzn-form">
+        <h2 class="text-center text-primary">O {{user.fullName}}:</h2>
+        <div class="card-content text-left">
+          <h5>Inormacje:</h5>
+          <hr>
+          <p>Data urodzenia: <strong>{{user.dateOfBirthText}}</strong>
+          <br/> Miejsce urodzenia: <strong>{{user.cityOfBirth}}</strong>
+          <br/> Wiek: <strong>{{user.age}}</strong></p><hr>
+          <h5>Kontakt:</h5>
+          <hr><p>E-mail: <a href="mailto:{{user.email}}">{{user.email}}</a>
+          <br/>Telefon: <a href="tel:{{user.phoneNumber}}">{{user.phoneNumber}}</a></p>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>

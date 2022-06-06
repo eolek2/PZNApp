@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <div class="card card-title fs-3 text-center mb-3">
+    News
+    <div class="row mt-2">
+      <div class="col-4 text-left pl-4 pb-2">
+        <div *ngIf="post.hasPrevious" class="btn btn-primary pl-5" (click)="otherPost(post.previousId)">
+          Poprzedni post
+        </div>
+      </div>
+      <div class="col-4 text-center">
+        <div class="btn btn-primary" (click)="allNews()">
+          Wszystkie newsy
+        </div>
+      </div>
+      <div class="col-4 text-right pr-4 pb-2">
+        <div *ngIf="post.hasNext" class="btn btn-primary pr-5" (click)="otherPost(post.nextId)">
+          Następny post
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card card-body rounded mb-3">
+    <div class="card-title fs-4">
+      {{post.title}}
+    </div>
+    <div>
+      Autor: <a href="#">{{post.createdBy}}</a>
+      <hr/>
+    </div>
+    <div class="card-text lead fw-normal text-muted mb-0" [innerHTML]="post.content | youtube">
+
+    </div>
+    <div class="card-subtitle">
+      <hr/>
+      <div class="row">
+        <div *ngIf="post.wasUpdated" class="col-12">
+          Dodano: {{post.creationDate}}
+          <br/>Ostatnio zaktualizowano: {{post.updateDate}}
+        </div>
+        <div *ngIf="!post.wasUpdated" class="col-12">
+          Dodano: {{post.creationDate}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

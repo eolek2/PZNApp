@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="container">
+    <div class="container-fluid">
+      <a *ngIf="!loggedIn()" class="navbar-brand" routerLink="/" routerLinkActive="active">Aplikacja PZN</a>
+      <a *ngIf="loggedIn()" class="navbar-brand" routerLink="/home" routerLinkActive="active">Aplikacja PZN</a>
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/about" routerLinkActive="active">O nas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contact" routerLinkActive="active">Kontakt</a>
+          </li>
+          <li class="nav-item" *ngIf="accountService.currentUser | async">
+            <a class="nav-link" routerLink="/forum" routerLinkActive="active">Forum</a>
+          </li>
+          <li class="nav-item" *ngIf="accountService.currentUser | async">
+            <a class="nav-link" routerLink="/users" routerLinkActive="active">Użytkownicy</a>
+          </li>
+        </ul>
+
+        <div class="dropdown" *ngIf="(accountService.currentUser | async) as user" dropdown>
+          <a class="dropdown-toggle text-light" dropdownToggle>Witaj użytkowniku {{user.firstName | titlecase}}</a>
+          <div class="dropdown-menu mt-3" *dropdownMenu>
+            <a class="dropdown-item" (click)="me()">Profil</a>
+            <a class="dropdown-item" routerLink="/me">Ustawienia konta</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" (click)="logout()">Wyloguj się</a>
+          </div>
+        </div>
+
+        <form #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off" *ngIf="(accountService.currentUser | async) === null">
+          <input name="userName" [(ngModel)]="model.userName" class="form-control mr-sm-2" type="text" placeholder="Login">
+          <input name="password" [(ngModel)]="model.password" class="form-control mr-sm-2" type="password" placeholder="Hasło">
+          <button class="btn btn-primary form-control" style="min-width: none;" type="submit">Zaloguj się</button>
+          <a class="nav-link" routerLink="/resetpassword" routerLinkActive="active">Resetuj hasło</a>
+        </form>
+    </div>
+  </div>
+
+</nav>

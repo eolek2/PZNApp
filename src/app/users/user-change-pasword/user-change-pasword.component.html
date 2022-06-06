@@ -1,0 +1,16 @@
+<div class="pzn-form">
+  <form #changePasswordForm="ngForm" (ngSubmit)="changePassword()" autocomplete="off">
+    <h2 class="text-center text-primary">Edycja danych</h2>
+    <div class="form-group">
+      <input type="password" class="form-control" [(ngModel)]="model.oldPassword" name="oldPassword" placeholder="Obecne hasło">
+      <input type="password" class="form-control" [(ngModel)]="model.newPassword" name="newPassword" placeholder="Nowe hasło">
+    </div>
+
+    <div class="form-group text-right">
+      <button class="btn btn-primary mr-2" type="submit">
+        <img src="/assets/save.png" class="img-icon" />
+        Zapisz
+      </button>
+    </div>
+  </form>
+</div>

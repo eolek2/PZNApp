@@ -1,0 +1,20 @@
+<div class="pzn-form">
+  <form #editDataForm="ngForm" (ngSubmit)="editData()" autocomplete="off">
+    <h2 class="text-center text-primary">Edycja danych</h2>
+    <div class="form-group">
+      <input type="text" class="form-control" [(ngModel)]="model.firstName" name="firstName" placeholder="Imię">
+      <input type="text" class="form-control" [(ngModel)]="model.lastName" name="lastName" placeholder="Nazwisko">
+      <input type="date" class="form-control" [(ngModel)]="model.dateOfBirth" name="dateOfBirth" placeholder="dd.mm.rrrr">
+      <input type="text" class="form-control" [(ngModel)]="model.cityOfBirth" name="cityOfBirth" placeholder="Miejscowość urodzenia">
+      <input type="text" maxlength="11" pattern="[0-9]{11}" class="form-control" [(ngModel)]="model.pesel" name="pesel" placeholder="PESEL">
+      <input type="text" maxlength="11" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" class="form-control" [(ngModel)]="model.phoneNumber" name="phoneNumber" placeholder="Numer telefonu">
+    </div>
+
+    <div class="form-group text-right">
+      <button class="btn btn-primary mr-2" type="submit">
+        <img src="/assets/save.png" class="img-icon" />
+        Zapisz
+      </button>
+    </div>
+  </form>
+</div>

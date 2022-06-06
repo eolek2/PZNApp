@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <div class="card card-title fs-3 text-center mb-3">
+    News
+  </div>
+  <div *ngFor="let post of posts" class="card card-body rounded mb-3">
+    <div class="card-title fs-4">
+      {{post.title}}
+    </div>
+    <div>
+      Autor: <a href="#">{{post.createdBy}}</a>
+      <hr/>
+    </div>
+    <div class="card-text lead fw-normal text-muted mb-0" [innerHTML]="post.content">
+
+    </div>
+    <div class="card-subtitle">
+      <hr/>
+      <div class="row">
+        <div *ngIf="post.wasUpdated" class="col-6">
+          Dodano: {{post.creationDate}}
+          <br/>Ostatnio zaktualizowano: {{post.updateDate}}
+        </div>
+        <div *ngIf="!post.wasUpdated" class="col-6">
+          Dodano: {{post.creationDate}}
+        </div>
+        <div class="col-6 text-right">
+          <div class="btn btn-primary btn-lg" (click)="readMore(post.id)">Czytaj więcej</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

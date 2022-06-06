@@ -1,0 +1,21 @@
+<div class="container mt-5">
+  <div *ngIf="!registerMode" class="pzn-box">
+    <h1>Znajdź się wśród niepełnosprawnych</h1>
+    <p class="lead">Znajdź się wśród nas i znajdź swoich znajomych. Wszystko co musisz zrobić, to utworzyć swoje konto!</p>
+    <div class="text-center">
+      <button (click)="registerToggle()" class="btn btn-primary btn-lg mr-2">Zarejestruj się</button>
+      <button class="btn btn-info btn-lg">Czytaj więcej</button>
+    </div>
+  </div>
+
+  <div *ngIf="registerMode" class="container">
+      <div class="row justify-content-center">
+        <div class="col-4" style="margin-top: 125px;">
+          <img alt="Logo PZN" src="/assets/logo.jpg" />
+        </div>
+        <div class="col-6">
+          <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+        </div>
+      </div>
+    </div>
+</div>

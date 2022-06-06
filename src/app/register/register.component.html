@@ -1,0 +1,25 @@
+<div class="pzn-form">
+    <form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
+      <h2 class="text-center text-primary">Zarejestruj się</h2>
+      <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="model.username" name="userName" [(ngModel)]="model.userName" placeholder="Login">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" [(ngModel)]="model.password" name="password" [(ngModel)]="model.password" placeholder="Hasło">
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" [(ngModel)]="model.email" name="enail" [(ngModel)]="model.email" placeholder="Adres E-mail">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="model.firstname" name="firstName" [(ngModel)]="model.firstName" placeholder="Imię">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="model.lastname" name="lastName" [(ngModel)]="model.lastName" placeholder="Nazwisko">
+      </div>
+      <div class="form-group text-center">
+        <button class="btn btn-primary mr-2" type="submit">Zarejestruj się</button>
+        <button class="btn btn-secondary mr-2" (click)="cancel()" type="button">Anuluj</button>
+      </div>
+    </form>
+  </div>
+

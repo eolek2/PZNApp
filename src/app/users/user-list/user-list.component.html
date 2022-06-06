@@ -1,0 +1,53 @@
+<div class="container mt-5">
+  <div class="card card-body rounded">
+    <div class="card-title fs-3">
+      Wyszukaj
+      <hr/>
+    </div>
+    <div class="card-text lead fw-normal text-muted mb-0">
+      <form #findUsersForm="ngForm" (ngSubmit)="findUsers()" autocomplete="off">
+        <h2 class="text-center">Wyszukaj</h2>
+        <div class="form-group">
+          <input type="text" class="form-control" [(ngModel)]="filters.firstName" name="firstName" placeholder="Imię">
+          <input type="text" class="form-control" [(ngModel)]="filters.lastName" name="lastName" placeholder="Nazwisko">
+          <input type="text" class="form-control" [(ngModel)]="filters.userName" name="userName" placeholder="Nazwa użytkownika">
+          <input type="email" class="form-control" [(ngModel)]="filters.email" name="email" placeholder="E-mail">
+          <input type="date" class="form-control" [(ngModel)]="filters.fromDate" name="fromDate" placeholder="Urodzony od">
+          <input type="date" class="form-control" [(ngModel)]="filters.toDate" name="toDate" placeholder="Urodzony do">
+        </div>
+
+        <div class="form-group text-right">
+          <button class="btn btn-primary mr-2" type="submit">
+            Wyszukaj
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="card card-body rounded">
+    <div class="card-title fs-3">
+      Wyniki
+      <hr/>
+    </div>
+    <div *ngFor="let user of users" class="card-text lead fw-normal text-muted mb-2">
+      <div class="row">
+        <div class="col-2">
+          <img *ngIf="user.hasAvatar" src="{{user.avatarUrl}}" class="img-fluid img-thumbnail rounded img-user-avatar" style="max-width:65px" />
+          <img *ngIf="!user.hasAvatar" src="/assets/noname.png" class="img-fluid img-thumbnail rounded img-user-avatar" style="max-width:65px" />
+        </div>
+        <div class="col-10 text-left my-auto">
+          <div class="row">
+            <div class="col-8 fw-normal">
+              {{user.fullName}}
+            </div>
+            <div class="col-4 fw-normal">
+              <div class="btn btn-primary mr-2" (click)="showProfile(user.userId)">Wyświetl profil</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

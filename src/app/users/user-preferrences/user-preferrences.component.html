@@ -1,0 +1,44 @@
+<div class="container mt-5">
+  <div class="card card-title fs-3 text-center mb-3">
+    Ustawienia konta
+  </div>
+  <div class="row">
+    <div class="col 4">
+      <div class="card card-title fs-6 text-center mb-3">
+        <div class="p2">&nbsp;</div>
+        <img *ngIf="me.hasAvatar" src="{{me.avatarUrl}}" class="img-fluid img-thumbnail rounded img-user-avatar" />
+        <img *ngIf="!me.hasAvatar" src="/assets/noname.png" class="img-fluid img-thumbnail rounded img-user-avatar" />
+        <div class="p-2">
+          {{me.fullName}}
+        </div>
+        <div class="p-2">
+          Menu
+        </div>
+          <div class="p-4 row justify-content-center">
+            <div class="mt-2 btn btn-primary" (click)="loadEditData()">
+              Edycja danych
+            </div>
+            <div *ngIf="me.canWritePosts" class="mt-2 btn btn-primary" (click)="loadPosts()">
+              Moje wpisy
+            </div>
+            <div class="mt-2 btn btn-primary" (click)="changePassword()">
+              Zmiana hasła
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="col-8">
+      <div *ngIf="selectedModule==='data'">
+          <app-user-edit-data></app-user-edit-data>
+      </div>
+      <div *ngIf="selectedModule==='posts'">
+        <app-user-posts-management></app-user-posts-management>
+      </div>
+      <div *ngIf="selectedModule==='changePassword'">
+        <app-user-change-pasword></app-user-change-pasword>
+      </div>
+
+    </div>
+
+  </div>
+</div>

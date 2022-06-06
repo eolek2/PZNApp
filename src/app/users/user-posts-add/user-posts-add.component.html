@@ -1,0 +1,32 @@
+<div>
+  <form #addPostForm="ngForm" (ngSubmit)="addPost()" autocomplete="off">
+    <div class="card card-body rounded mb-3">
+      <div class="card-title fs-4">
+        <input type="text" class="form-control" [(ngModel)]="model.title" name="title" placeholder="Tytuł">
+      </div>
+      <div class="card-text lead fw-normal text-muted mb-0">
+        <label>Krótka treść</label>
+        <ckeditor [(ngModel)]="model.shortContent" [editor]="Editor" name="shortContent"></ckeditor>
+      </div>
+      <div class="card-text lead fw-normal text-muted mb-0">
+        <label>Treść</label>
+        <ckeditor [(ngModel)]="model.content" [editor]="Editor" name="content"></ckeditor>
+      </div>
+      <div class="card-subtitle">
+        <hr/>
+        <div class="row">
+          <div class="col-12 text-right">
+            <button class="btn btn-primary mr-2" type="submit">
+              <img src="/assets/save.png" class="img-icon" />
+              Zapisz
+            </button>
+            <button class="btn btn-danger mr2" (click)="cancelPost()">
+              <img src="/assets/cancel.png" class="img-icon" />
+              Anuluj
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </form>
+</div>
