@@ -17,6 +17,48 @@
           <li class="nav-item" *ngIf="accountService.currentUser | async">
             <a class="nav-link" routerLink="/users" routerLinkActive="active">Użytkownicy</a>
           </li>
+          <li>
+
+ <!-- modal -->
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Zapisz się na subskrybcje naszych gazetek.</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                   
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                      <label class="form-check-label" for="flexCheckIndeterminate">
+                        Newsletter
+                      </label>
+                      <label class="form-check-label" for="flexCheckIndeterminate">
+                        Pochodnia
+                      </label>
+                      <label class="form-check-label" for="flexCheckIndeterminate">
+                        Promyczek
+                      </label>
+                      <label class="form-check-label" for="flexCheckIndeterminate">
+                        Pod lupą
+                      </label>
+                      <label class="form-check-label" for="flexCheckIndeterminate">
+                        Nasze dzieci
+                      </label>
+                    </div>
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zamknij</button>
+                    <button type="button" class="btn btn-primary">Zapisz</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Tu koniec -->
+          </li>
         </ul>
 
         <div class="dropdown" *ngIf="(accountService.currentUser | async) as user" dropdown>
@@ -33,7 +75,7 @@
           <input name="userName" [(ngModel)]="model.userName" class="form-control mr-sm-2" type="text" placeholder="Login">
           <input name="password" [(ngModel)]="model.password" class="form-control mr-sm-2" type="password" placeholder="Hasło">
           <button class="btn btn-primary form-control" style="min-width: none;" type="submit">Zaloguj się</button>
-          <button class="nav-link" routerLink="/resetpassword" routerLinkActive="active">Resetuj hasło</a>
+          <a class="nav-link" routerLink="/resetpassword" routerLinkActive="active">Resetuj hasło</a>
         </form>
     </div>
   </div>
