@@ -21,7 +21,7 @@
             <div *ngIf="me.canWritePosts" class="mt-2 btn btn-primary" (click)="loadPosts()">
               Moje wpisy
             </div>
-            <div class="mt-2 btn btn-primary" (click)="changePassword()">
+            <div class="mt-2 btn btn-primary" (click)="showSubscriptions()">
               Moje subskrybcje
             </div>
             <div class="mt-2 btn btn-primary" (click)="changePassword()">
@@ -40,7 +40,9 @@
       <div *ngIf="selectedModule==='changePassword'">
         <app-user-change-pasword></app-user-change-pasword>
       </div>
-
+      <div *ngIf="selectedModule==='showSubscriptions'">
+        <app-user-show-subscriptions></app-user-show-subscriptions>
+      </div>
     </div>
 
   </div>
